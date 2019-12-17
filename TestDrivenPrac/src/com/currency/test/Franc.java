@@ -1,12 +1,18 @@
 package com.currency.test;
 
 public class Franc extends Money{
-
-	public Franc(int amount) {
-		this.amount = amount;
+	private String currency;
+	
+	public Franc(int amount, String currency) {
+		super(amount, currency);
 	}
 
 	public Franc times(int multiplier) {
-		return new Franc(amount * multiplier);
+		return Money.franc(amount * multiplier);
+	}
+
+	@Override
+	String currency() {
+		return currency;
 	}
 }
